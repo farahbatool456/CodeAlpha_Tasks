@@ -1,0 +1,264 @@
+{
+  "categories": {
+    "College": [
+      {
+        "id": "C001",
+        "question": "What are the admission requirements for the university?",
+        "answer": "Admission requirements typically include a completed application form, high school transcripts with a minimum GPA of 3.0, SAT/ACT scores, letters of recommendation, and a personal statement. Some programs may have additional requirements like portfolios or interviews."
+      },
+      {
+        "id": "C002",
+        "question": "How do I apply for financial aid or scholarships?",
+        "answer": "To apply for financial aid, complete the FAFSA (Free Application for Federal Student Aid) at studentaid.gov. For scholarships, visit our scholarships portal on the university website. Deadlines are typically in February for the following academic year. Merit-based scholarships are awarded automatically based on your GPA and test scores."
+      },
+      {
+        "id": "C003",
+        "question": "What is the deadline for course registration?",
+        "answer": "Course registration deadlines vary by semester. For Fall semester, registration opens in April and closes in August. For Spring semester, registration opens in November and closes in January. Late registration may incur additional fees. Check the academic calendar on the university portal for exact dates."
+      },
+      {
+        "id": "C004",
+        "question": "How do I get a student ID card?",
+        "answer": "Visit the Student Services office on campus with your enrollment confirmation and a government-issued photo ID. Student ID cards are issued free of charge to enrolled students. You can also schedule an appointment online through the student portal to avoid long wait times."
+      },
+      {
+        "id": "C005",
+        "question": "What housing options are available on campus?",
+        "answer": "The university offers several housing options including traditional dormitories, suite-style residences, and apartment-style housing for upperclassmen. All first-year students are required to live on campus. Apply for housing through the Student Housing portal. Housing assignments are made on a first-come, first-served basis."
+      },
+      {
+        "id": "C006",
+        "question": "How can I access the university library resources?",
+        "answer": "University library resources are available 24/7 through the library portal using your student credentials. Physical library hours are Monday–Friday 7am–11pm and weekends 9am–9pm. You can borrow up to 10 books at a time. Digital databases like JSTOR, PubMed, and IEEE Xplore are accessible remotely with your student login."
+      },
+      {
+        "id": "C007",
+        "question": "What is the grading system used at the university?",
+        "answer": "The university uses a standard letter grading system: A (90-100%), B (80-89%), C (70-79%), D (60-69%), and F (below 60%). GPA is calculated on a 4.0 scale. Some courses may use pass/fail grading. Academic standing requires maintaining a minimum 2.0 GPA."
+      },
+      {
+        "id": "C008",
+        "question": "How do I withdraw or drop a course?",
+        "answer": "You can drop a course without academic penalty during the first two weeks of the semester through the student portal. After that, dropping a course results in a W on your transcript. Complete withdrawal from all courses requires approval from your academic advisor and may affect financial aid eligibility."
+      },
+      {
+        "id": "C009",
+        "question": "Are there internship or placement opportunities through the college?",
+        "answer": "Yes! The Career Services office connects students with internship and placement opportunities. We partner with over 500 companies across industries. Attend career fairs held each semester, use the Handshake platform to browse listings, and schedule one-on-one career counseling sessions to prepare your resume and interview skills."
+      },
+      {
+        "id": "C010",
+        "question": "What mental health services does the university offer?",
+        "answer": "The university provides free counseling services through the Student Wellness Center. Services include individual therapy, group counseling, crisis support, and wellness workshops. Appointments can be booked online or by calling the center. A 24/7 crisis hotline is also available for students needing immediate support."
+      }
+    ],
+    "Ecommerce": [
+      {
+        "id": "E001",
+        "question": "How do I place an order on your website?",
+        "answer": "Placing an order is simple! Browse products, click 'Add to Cart', then proceed to checkout. Enter your shipping details, choose a payment method (credit/debit card, PayPal, or UPI), review your order summary, and click 'Place Order'. You'll receive an order confirmation email within minutes."
+      },
+      {
+        "id": "E002",
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit and debit cards (Visa, Mastercard, American Express), PayPal, Google Pay, Apple Pay, UPI, net banking, and EMI options for orders above $100. All transactions are secured with 256-bit SSL encryption for your safety."
+      },
+      {
+        "id": "E003",
+        "question": "How can I track my order?",
+        "answer": "Once your order ships, you'll receive a tracking number via email and SMS. Visit the 'My Orders' section in your account, click on the order, and you'll see real-time tracking updates. You can also track directly on our courier partner's website using the tracking number provided."
+      },
+      {
+        "id": "E004",
+        "question": "What is your return and refund policy?",
+        "answer": "We offer a hassle-free 30-day return policy. Items must be unused, in original packaging, with all tags attached. Initiate a return from 'My Orders' in your account. Once we receive and inspect the item, refunds are processed within 5-7 business days to your original payment method. Electronics must be returned within 15 days."
+      },
+      {
+        "id": "E005",
+        "question": "How long does delivery take?",
+        "answer": "Standard delivery takes 5-7 business days. Express delivery (2-3 days) is available for an additional fee. Same-day delivery is available in select cities for orders placed before 12 PM. International orders typically take 10-15 business days. You can choose your preferred shipping option at checkout."
+      },
+      {
+        "id": "E006",
+        "question": "Is my personal information safe on your website?",
+        "answer": "Absolutely. We use industry-standard SSL encryption for all data transmission. We never sell or share your personal information with third parties. Payment details are processed through PCI-DSS compliant gateways and are never stored on our servers. You can review our full Privacy Policy on the website."
+      },
+      {
+        "id": "E007",
+        "question": "How do I apply a coupon or promo code?",
+        "answer": "During checkout, you'll see a 'Promo Code' field on the order summary page. Enter your code and click 'Apply'. The discount will be reflected in your total immediately. Note that only one promo code can be applied per order. Make sure to check the coupon's expiry date and minimum order value requirements."
+      },
+      {
+        "id": "E008",
+        "question": "Can I change or cancel my order after placing it?",
+        "answer": "Orders can be modified or cancelled within 1 hour of placement through 'My Orders' in your account. After that, if the order hasn't shipped yet, contact our customer support immediately. Once shipped, orders cannot be cancelled but can be returned after delivery following our return policy."
+      },
+      {
+        "id": "E009",
+        "question": "Do you offer gift wrapping or gift cards?",
+        "answer": "Yes! We offer gift wrapping for a small additional fee — select this option at checkout. Digital gift cards are available in denominations from $10 to $500 and are delivered instantly via email. Physical gift cards can be purchased in-store. Gift cards are valid for 12 months from the date of purchase."
+      },
+      {
+        "id": "E010",
+        "question": "How do I contact customer support?",
+        "answer": "Our customer support team is available 24/7. You can reach us via live chat on the website, email at support@store.com (response within 24 hours), or phone at 1-800-SHOP-NOW (Mon-Fri, 9am-6pm EST). You can also use the 'Help' section in your account for common issues and self-service options."
+      }
+    ],
+    "Banking": [
+      {
+        "id": "B001",
+        "question": "How do I open a new bank account?",
+        "answer": "Opening an account is easy! Visit any branch with your government-issued ID (passport/driver's license), proof of address (utility bill or bank statement), Social Security Number, and an initial deposit. Alternatively, open an account online in under 10 minutes through our website or mobile app with the same documents uploaded digitally."
+      },
+      {
+        "id": "B002",
+        "question": "What should I do if I lose my debit card?",
+        "answer": "Report a lost or stolen card immediately! Use the mobile app to freeze your card instantly under 'Card Management'. Call our 24/7 helpline at 1-800-BANK-HELP, or log in to online banking and disable the card. A replacement card will be issued within 5-7 business days. You will not be held liable for unauthorized transactions reported promptly."
+      },
+      {
+        "id": "B003",
+        "question": "How do I reset my online banking password?",
+        "answer": "Go to the login page and click 'Forgot Password'. Enter your registered email address and you'll receive an OTP. Verify the OTP, then create a new strong password (minimum 8 characters with uppercase, number, and special character). For security, you cannot reuse your last 5 passwords. If you're locked out, call customer support."
+      },
+      {
+        "id": "B004",
+        "question": "What are the charges for wire transfers or NEFT?",
+        "answer": "Domestic wire transfers: $0 for transfers under $10,000 via mobile app; $15 via branch. NEFT transfers: Free for amounts under $1,000; $5 for higher amounts. International wire transfers start at $25 depending on the destination country. Premium account holders enjoy free unlimited transfers. All fees are listed in our Fee Schedule document."
+      },
+      {
+        "id": "B005",
+        "question": "How do I set up automatic bill payments?",
+        "answer": "Log in to online banking or the mobile app, go to 'Bill Pay', and add a payee using their billing information. Set up recurring payments by selecting the frequency (monthly, quarterly, etc.) and the amount. You can set up bill payments up to 90 days in advance. You'll receive confirmation notifications for each payment processed."
+      },
+      {
+        "id": "B006",
+        "question": "What is the daily ATM withdrawal limit?",
+        "answer": "The standard daily ATM withdrawal limit is $500 for regular accounts and $1,000 for premium accounts. You can temporarily increase your limit for up to 5 days through the mobile app under 'Card Settings'. To permanently increase your limit, visit a branch with valid ID. ATM withdrawals at partner banks are free; others may charge a $2-3 fee."
+      },
+      {
+        "id": "B007",
+        "question": "How do I apply for a personal loan?",
+        "answer": "Apply online through the mobile app or website under 'Loans & Credit'. You'll need proof of income (last 3 months' pay stubs), employment details, and your account information. Loan amounts range from $1,000 to $50,000 with terms from 12-60 months. Get an instant pre-approval decision. Final approval and disbursement typically takes 1-3 business days."
+      },
+      {
+        "id": "B008",
+        "question": "Is my money insured in this bank?",
+        "answer": "Yes, your deposits are fully insured up to $250,000 per depositor by the FDIC (Federal Deposit Insurance Corporation). This coverage applies to checking accounts, savings accounts, CDs, and money market accounts. Joint accounts are insured up to $500,000. Your money is safe even if the bank faces financial difficulties."
+      },
+      {
+        "id": "B009",
+        "question": "How do I dispute an unauthorized transaction?",
+        "answer": "Immediately freeze your card via the mobile app if the transaction is recent. Then, go to 'Transaction History', find the suspicious transaction, and click 'Dispute'. Fill out the dispute form with details. Our fraud team investigates within 3-5 business days. You may receive a provisional credit while the investigation is ongoing. Keep all related receipts and communication."
+      },
+      {
+        "id": "B010",
+        "question": "How do I check my credit score through the bank?",
+        "answer": "Free credit score monitoring is available to all account holders! Log in to the mobile app or online banking, navigate to 'Credit Score' under your profile. Your score is updated monthly. We provide a full credit report breakdown, score factors, and personalized tips to improve your score. This service does not affect your credit score in any way."
+      }
+    ],
+    "Internship": [
+      {
+        "id": "I001",
+        "question": "How do I apply for an internship at your company?",
+        "answer": "Visit our Careers page and filter by 'Internship' under job type. Select the role that matches your skills and submit your application with your resume, cover letter, and any required portfolio samples. Applications are reviewed on a rolling basis. You'll receive an acknowledgment email within 48 hours and a decision within 2-3 weeks."
+      },
+      {
+        "id": "I002",
+        "question": "Is the internship paid or unpaid?",
+        "answer": "All our internships are paid! Compensation varies by role and location. Technical internships (engineering, data science, design) typically pay $25-45/hour. Business and marketing internships range from $18-30/hour. You'll also receive benefits including free lunch, transportation allowance, and access to company resources and events."
+      },
+      {
+        "id": "I003",
+        "question": "What is the duration of the internship program?",
+        "answer": "Our standard internship program runs for 10-12 weeks during summer (June-August). We also offer 6-month co-op programs for students who can work part-time during the academic year. Some specialized internships run for 3 months in spring or fall. The schedule is typically 40 hours/week for full-time and 20 hours/week for part-time programs."
+      },
+      {
+        "id": "I004",
+        "question": "What skills are required for a software engineering internship?",
+        "answer": "We look for proficiency in at least one programming language (Python, Java, C++, or JavaScript), understanding of data structures and algorithms, familiarity with version control (Git), and problem-solving ability. Experience with frameworks, databases, or cloud platforms is a plus. Strong communication skills and a collaborative attitude matter as much as technical skills."
+      },
+      {
+        "id": "I005",
+        "question": "Will I get a mentor during the internship?",
+        "answer": "Yes! Every intern is assigned a dedicated mentor — a full-time employee in a similar role. Your mentor holds weekly 1-on-1 meetings, provides technical guidance, reviews your work, and supports your professional growth. You'll also have access to a peer buddy — a past intern — who can share practical advice and help you settle in quickly."
+      },
+      {
+        "id": "I006",
+        "question": "Is there a possibility of a full-time job offer after the internship?",
+        "answer": "Absolutely. Over 60% of our interns receive a full-time return offer. Performance is evaluated based on project delivery, collaboration, and learning agility. Return offers are communicated within 2 weeks of the internship's end. If you receive an offer, you'll have 30 days to decide. We also maintain a talent pipeline for interns who aren't immediately hired."
+      },
+      {
+        "id": "I007",
+        "question": "Do you provide housing or relocation assistance for interns?",
+        "answer": "We offer a one-time relocation stipend of $2,000 for interns relocating more than 50 miles. We also provide a curated list of intern-friendly housing options near the office and connect incoming interns through a housing group. Some locations offer subsidized company housing. Remote internship options are available for certain roles."
+      },
+      {
+        "id": "I008",
+        "question": "What does a typical day look like for an intern?",
+        "answer": "Mornings usually start with a standup meeting with your team. You'll spend most of the day working on your assigned project, collaborating with teammates, attending relevant meetings, and learning from your mentor. Many interns also participate in intern-exclusive events like speaker sessions, hackathons, and networking lunches. Expect a healthy mix of independent work and team collaboration."
+      },
+      {
+        "id": "I009",
+        "question": "How do I prepare for an internship interview?",
+        "answer": "Research the company's products, mission, and recent news. For technical roles, practice data structures, algorithms, and system design on LeetCode and HackerRank. For non-technical roles, prepare behavioral answers using the STAR method. Review your resume and be ready to explain every project. Practice mock interviews with peers and dress professionally even for virtual interviews."
+      },
+      {
+        "id": "I010",
+        "question": "What projects will I work on during the internship?",
+        "answer": "Interns work on real, impactful projects — not dummy tasks. Past interns have built features used by millions of users, analyzed datasets that shaped product decisions, and designed UI components that shipped to production. At the start, you'll define your project scope with your manager. Final presentations are held in the last week for all interns to showcase their work."
+      }
+    ],
+    "General": [
+      {
+        "id": "G001",
+        "question": "What are your working hours?",
+        "answer": "Our support team is available Monday to Friday from 9:00 AM to 6:00 PM EST. For urgent matters, a 24/7 emergency line is available. Automated services and chatbots are accessible around the clock. Public holiday schedules are posted on our website in advance."
+      },
+      {
+        "id": "G002",
+        "question": "How do I reset my account password?",
+        "answer": "Click 'Forgot Password' on the login page. Enter your registered email address and click 'Send Reset Link'. Check your email (including spam/junk folder) for the reset link, which expires in 30 minutes. Click the link, enter your new password, and confirm. For security, log out of all other sessions after resetting."
+      },
+      {
+        "id": "G003",
+        "question": "How do I update my profile or account information?",
+        "answer": "Log in to your account and go to 'Settings' or 'Profile'. Here you can update your name, email, phone number, address, and notification preferences. Some changes (like email updates) require verification through a confirmation link. Profile photos can be updated by clicking on your avatar image."
+      },
+      {
+        "id": "G004",
+        "question": "How do I delete my account?",
+        "answer": "Account deletion is permanent and cannot be undone. Go to Settings > Account > Delete Account. You'll be asked to confirm your password and reason for leaving. All your data, order history, and saved preferences will be permanently deleted within 30 days. If you have pending transactions or active subscriptions, resolve those first."
+      },
+      {
+        "id": "G005",
+        "question": "Is there a mobile app available?",
+        "answer": "Yes! Our mobile app is available for both iOS (App Store) and Android (Google Play Store). Search for our app name and download it for free. The app offers all features available on the web, plus push notifications, biometric login (fingerprint/Face ID), and offline access to certain features. The app is regularly updated with new features."
+      },
+      {
+        "id": "G006",
+        "question": "How do I subscribe to your newsletter?",
+        "answer": "Scroll to the bottom of any page on our website and enter your email in the 'Newsletter' field, then click 'Subscribe'. You can also subscribe through your account settings under 'Communication Preferences'. We send weekly updates, exclusive offers, and relevant news. You can unsubscribe at any time with one click in any email we send."
+      },
+      {
+        "id": "G007",
+        "question": "How do I report a bug or technical issue?",
+        "answer": "Use the 'Feedback' button on any page or go to Help > Report a Bug. Describe the issue clearly, including what you were doing when it occurred, the device and browser you're using, and any error messages you saw. Screenshots are very helpful. Our technical team reviews all reports and will follow up if they need more information."
+      },
+      {
+        "id": "G008",
+        "question": "Do you have a referral program?",
+        "answer": "Yes! Our referral program rewards you for inviting friends. Go to 'Refer a Friend' in your account dashboard. Share your unique referral link via email or social media. When your friend signs up and completes their first transaction, you both receive a reward (credit, discount, or cash depending on the program). There's no limit to how many people you can refer."
+      },
+      {
+        "id": "G009",
+        "question": "What languages does the platform support?",
+        "answer": "Our platform currently supports 12 languages including English, Spanish, French, German, Portuguese, Italian, Japanese, Korean, Chinese (Simplified and Traditional), Arabic, and Hindi. Language can be changed in Settings > Language. Some content may not be available in all languages. We're continuously adding new language support based on user demand."
+      },
+      {
+        "id": "G010",
+        "question": "How do I enable two-factor authentication?",
+        "answer": "Go to Settings > Security > Two-Factor Authentication (2FA). Choose your preferred method: SMS OTP, email OTP, or an authenticator app like Google Authenticator or Authy. Follow the setup steps to verify. Once enabled, you'll be asked for a code each time you log in from a new device. We strongly recommend enabling 2FA for maximum account security."
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+# requirements.txt
+# ============================================================
+# FAQ Chatbot Project — Python Dependencies
+# Install all at once with: pip install -r requirements.txt
+# ============================================================
+
+# ── Core Web Framework ──────────────────────────────────────
+streamlit>=1.28.0            # The frontend UI framework
+
+# ── NLP Libraries ───────────────────────────────────────────
+nltk>=3.8.1                  # Natural Language Toolkit (tokenization, stopwords, lemmatization)
+scikit-learn>=1.3.0          # TF-IDF vectorization and cosine similarity
+
+# ── Numerical Computing ─────────────────────────────────────
+numpy>=1.24.0                # Used for array operations with cosine similarity scores
+
+# ── Optional but Recommended ────────────────────────────────
+# spacy>=3.6.0               # Advanced NLP (optional, heavier dependency)
+# SpeechRecognition>=3.10.0  # For voice input feature (optional)
+# gTTS>=2.3.2                # For text-to-speech responses (optional)
+# pyttsx3>=2.90              # Offline text-to-speech (optional, Windows/Linux)
+
+# ── Utilities ───────────────────────────────────────────────
+python-dotenv>=1.0.0         # For managing environment variables (optional)
