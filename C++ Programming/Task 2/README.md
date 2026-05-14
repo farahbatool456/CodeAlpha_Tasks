@@ -176,9 +176,9 @@ login_system.exe
 
 > Replace this section with your own details before submitting.
 
-- **Name:** Your Name
-- **Email:** your@email.com
-- **GitHub:** github.com/yourusername
+- **Name:** FARAH BATOOL
+- **Email:** farahmughal0911@email.com
+- **GitHub:** github.com/farahbatool456
 
 ---
 
