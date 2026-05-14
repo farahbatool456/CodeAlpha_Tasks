@@ -1,17 +1,3 @@
-/*
- * ============================================================
- *  Project    : Basic Calculator
- *  Task       : 1 of 2 — CodeAlpha C Programming Internship
- *  Author     : FARAH BATOOL
- *  Date       : 2025
- *  Description: A menu-driven calculator that performs addition,
- *               subtraction, multiplication, and division on two
- *               numbers entered by the user. Division by zero is
- *               handled gracefully. Uses switch-case for clean
- *               operation selection.
- * ============================================================
- */
-
 #include <stdio.h>   /* printf, scanf */
 
 /* ──────────────────────────────────────────────
