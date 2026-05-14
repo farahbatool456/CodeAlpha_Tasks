@@ -202,7 +202,7 @@ Every value flows through function parameters and return values. This makes the 
 
 ## 👤 Author
 
-**Your FARAH BATOOL**
+**FARAH BATOOL**
 - GitHub: [@farahbatool456](https://github.com/your-username)
 
 
