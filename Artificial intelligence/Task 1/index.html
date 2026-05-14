@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaFlow — Language Translation Tool</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Fonts: Fraunces (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="logo">
+        <span class="logo__icon">⬡</span>
+        <span class="logo__text">LinguaFlow</span>
+      </div>
+      <!-- Dark / Light mode toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span class="theme-toggle__icon" id="themeIcon">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO TAG LINE ===== -->
+  <section class="hero">
+    <p class="hero__eyebrow">Powered by Claude AI</p>
+    <h1 class="hero__title">Translate <em>anything,</em><br/>instantly.</h1>
+  </section>
+
+  <!-- ===== MAIN TRANSLATION CARD ===== -->
+  <main class="main">
+    <div class="card">
+
+      <!-- ---- Language selectors row ---- -->
+      <div class="lang-row">
+        <!-- Source language -->
+        <div class="lang-select-wrap">
+          <label class="lang-label" for="sourceLang">From</label>
+          <select class="lang-select" id="sourceLang"></select>
+        </div>
+
+        <!-- Swap languages button -->
+        <button class="swap-btn" id="swapBtn" title="Swap languages" aria-label="Swap source and target languages">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 16V4m0 0L3 8m4-4l4 4"/><path d="M17 8v12m0 0l4-4m-4 4l-4-4"/>
+          </svg>
+        </button>
+
+        <!-- Target language -->
+        <div class="lang-select-wrap">
+          <label class="lang-label" for="targetLang">To</label>
+          <select class="lang-select" id="targetLang"></select>
+        </div>
+      </div>
+
+      <!-- ---- Text panels ---- -->
+      <div class="panels">
+
+        <!-- Source panel -->
+        <div class="panel panel--source">
+          <div class="panel__header">
+            <span class="panel__label">Source Text</span>
+            <div class="panel__actions">
+              <!-- Character counter -->
+              <span class="char-count" id="charCount">0 / 1000</span>
+              <!-- Clear button -->
+              <button class="icon-btn" id="clearBtn" title="Clear text" aria-label="Clear source text">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+              <!-- Text-to-speech for source -->
+              <button class="icon-btn" id="speakSourceBtn" title="Speak source text" aria-label="Speak source text">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </button>
+            </div>
+          </div>
+          <textarea
+            class="panel__textarea"
+            id="sourceText"
+            placeholder="Type or paste text here…"
+            maxlength="1000"
+            aria-label="Source text input"
+          ></textarea>
+        </div>
+
+        <!-- Result panel -->
+        <div class="panel panel--result">
+          <div class="panel__header">
+            <span class="panel__label">Translation</span>
+            <div class="panel__actions">
+              <!-- Copy button -->
+              <button class="icon-btn" id="copyBtn" title="Copy translation" aria-label="Copy translation" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+              <!-- Text-to-speech for translation -->
+              <button class="icon-btn" id="speakResultBtn" title="Speak translation" aria-label="Speak translated text" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Loading skeleton shown while waiting for API -->
+          <div class="loading-skeleton" id="loadingSkeleton" aria-hidden="true">
+            <div class="skeleton-line skeleton-line--long"></div>
+            <div class="skeleton-line skeleton-line--medium"></div>
+            <div class="skeleton-line skeleton-line--short"></div>
+          </div>
+
+          <!-- The translated text appears here -->
+          <div class="panel__result" id="resultText" aria-live="polite" aria-label="Translated text output">
+            <span class="result-placeholder">Translation will appear here…</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Translate button ---- -->
+      <div class="btn-row">
+        <button class="translate-btn" id="translateBtn" aria-label="Translate text">
+          <span class="translate-btn__text">Translate</span>
+          <span class="translate-btn__icon">→</span>
+        </button>
+      </div>
+
+      <!-- ---- Error message area ---- -->
+      <div class="error-box" id="errorBox" role="alert" aria-live="assertive" style="display:none;"></div>
+
+    </div><!-- /card -->
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>Built with Claude AI · LinguaFlow © 2025</p>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/languages.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
