@@ -202,9 +202,9 @@ Every value flows through function parameters and return values. This makes the 
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [your-linkedin](https://linkedin.com/in/your-linkedin)
+**Your FARAH BATOOL**
+- GitHub: [@farahbatool456](https://github.com/your-username)
+
 
 ---
 
