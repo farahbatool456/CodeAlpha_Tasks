@@ -1,4 +1,4 @@
-# CodeAlpha C Programming Internship
+# CodeAlpha C Programming
 
 > **Intern:** [Your Name]
 > **Program:** CodeAlpha C Programming Internship
