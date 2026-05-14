@@ -1,26 +1,3 @@
-/*
- * ============================================================
- *  Project    : Matrix Operations
- *  Task       : 2 of 2 — CodeAlpha C Internship
- *  Author     : [Your Name]
- *  Date       : 2025
- *  Description: Demonstrates three fundamental matrix operations
- *               using 2D arrays and modular functions:
- *                 1. Matrix Addition
- *                 2. Matrix Multiplication
- *                 3. Matrix Transpose
- *               User provides matrix dimensions and values.
- *               All matrices are displayed in neat grid format.
- * ============================================================
- *
- *  MAX SIZE NOTE:
- *  We fix a maximum dimension of 5x5 for simplicity.
- *  The user enters the actual rows/cols they want (1 to 5).
- *  Memory is pre-allocated as 5x5; only the used portion
- *  is filled and displayed.
- * ============================================================
- */
-
 #include <stdio.h>   /* printf, scanf */
 
 /* ── Compile-time constant for max matrix size ── */
