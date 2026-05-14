@@ -1,23 +1,3 @@
-# CodeAlpha C Programming
-
-> **Intern:** [Your Name]
-> **Program:** CodeAlpha C Programming Internship
-> **Language:** C (C99 standard)
-> **Compiler:** GCC
-
----
-
-## Repository Structure
-
-```
-codealpha-c-internship/
-├── task1_calculator.c      # Basic Calculator Program
-├── task2_matrix.c          # Matrix Operations Program
-└── README.md               # This file
-```
-
----
-
 ## Task 1 — Basic Calculator
 
 ### Description
