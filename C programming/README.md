@@ -180,17 +180,3 @@ Time Complexity: O(rows × cols)
 - Formatted console output
 
 ---
-
-## How to Push to GitHub
-
-```bash
-# Inside your project folder
-git init
-git add task1_calculator.c task2_matrix.c README.md
-git commit -m "Add CodeAlpha internship tasks: Calculator and Matrix Operations"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-git push -u origin main
-```
-
-> Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your actual GitHub details.
