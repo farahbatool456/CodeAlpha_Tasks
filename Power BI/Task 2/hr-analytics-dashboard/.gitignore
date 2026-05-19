@@ -1,0 +1,67 @@
+# ──── Power BI ────────────────────────────────────────────────────────────────
+# Ignore compiled/cached Power BI files but track the .pbix
+*.pbix.bak
+.pbi/
+
+# ──── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ──── Data files (real/sensitive) ─────────────────────────────────────────────
+# Track sample data but ignore any real exports you drop in
+data/*_real.csv
+data/*_production.csv
+data/*_export.csv
+data/forecast_output.csv     # Generated file — exclude from git
+
+# ──── OS ──────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ──── IDE / Editor ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.env
+.envrc
+
+# ──── Jupyter ────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ──── Logs ───────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ──── Secrets ────────────────────────────────────────────────────────────────
+.env
+.env.local
+secrets.json
+credentials.json

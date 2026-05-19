@@ -1,0 +1,19 @@
+# HR Analytics Dashboard — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Synthetic data generation
+Faker>=19.0.0
+
+# Predictive forecasting (optional — required for forecast_model.py with Prophet)
+prophet>=1.1.4
+
+# Visualization (optional — for standalone charts outside Power BI)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Data validation utilities
+python-dateutil>=2.8.0

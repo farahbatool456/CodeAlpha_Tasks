@@ -1,0 +1,408 @@
+// ============================================================
+// FINANCIAL HEALTH DASHBOARD — DAX MEASURES
+// ============================================================
+// Paste each measure into Power BI Desktop:
+//   Modeling tab → New Measure
+// All measures assume table names match the CSV file names
+// (income_statement, balance_sheet, cash_flow, budget_vs_actual, kpi_metrics)
+// ============================================================
+
+
+// ============================================================
+// SECTION 1: INCOME STATEMENT MEASURES
+// ============================================================
+
+Total Revenue = 
+SUM(income_statement[Revenue])
+
+Total COGS = 
+SUM(income_statement[COGS])
+
+Gross Profit = 
+SUM(income_statement[Gross_Profit])
+
+Total Operating Expenses = 
+SUM(income_statement[Operating_Expenses])
+
+EBITDA = 
+SUM(income_statement[EBITDA])
+
+Net Income = 
+SUM(income_statement[Net_Income])
+
+// --- MARGIN RATIOS ---
+
+Gross Margin % = 
+DIVIDE([Gross Profit], [Total Revenue], 0) * 100
+
+Net Margin % = 
+DIVIDE([Net Income], [Total Revenue], 0) * 100
+
+EBITDA Margin % = 
+DIVIDE([EBITDA], [Total Revenue], 0) * 100
+
+Operating Margin % = 
+DIVIDE(SUM(income_statement[EBIT]), [Total Revenue], 0) * 100
+
+
+// ============================================================
+// SECTION 2: YEAR-OVER-YEAR GROWTH
+// ============================================================
+
+Revenue PY = 
+CALCULATE(
+    [Total Revenue],
+    DATEADD(income_statement[Date], -1, YEAR)
+)
+
+Revenue YoY Growth = 
+DIVIDE([Total Revenue] - [Revenue PY], [Revenue PY], 0) * 100
+
+Revenue YoY Growth Label = 
+VAR Growth = [Revenue YoY Growth]
+RETURN
+    IF(
+        ISBLANK(Growth),
+        "N/A",
+        FORMAT(Growth, "+0.0%;-0.0%;0.0%")
+    )
+
+Net Income PY = 
+CALCULATE(
+    [Net Income],
+    DATEADD(income_statement[Date], -1, YEAR)
+)
+
+Net Income YoY Growth = 
+DIVIDE([Net Income] - [Net Income PY], [Net Income PY], 0) * 100
+
+Gross Profit PY = 
+CALCULATE(
+    [Gross Profit],
+    DATEADD(income_statement[Date], -1, YEAR)
+)
+
+Gross Profit YoY Growth % = 
+DIVIDE([Gross Profit] - [Gross Profit PY], [Gross Profit PY], 0) * 100
+
+
+// ============================================================
+// SECTION 3: ROLLING / CUMULATIVE MEASURES
+// ============================================================
+
+Revenue YTD = 
+TOTALYTD([Total Revenue], income_statement[Date])
+
+Net Income YTD = 
+TOTALYTD([Net Income], income_statement[Date])
+
+Gross Profit YTD = 
+TOTALYTD([Gross Profit], income_statement[Date])
+
+Revenue QTD = 
+TOTALQTD([Total Revenue], income_statement[Date])
+
+Revenue 3M Rolling Avg = 
+AVERAGEX(
+    DATESINPERIOD(income_statement[Date], LASTDATE(income_statement[Date]), -3, MONTH),
+    [Total Revenue]
+)
+
+Revenue 12M Rolling = 
+CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD(income_statement[Date], LASTDATE(income_statement[Date]), -12, MONTH)
+)
+
+
+// ============================================================
+// SECTION 4: BALANCE SHEET MEASURES
+// ============================================================
+
+Total Current Assets = 
+SUM(balance_sheet[Total_Current_Assets])
+
+Total Fixed Assets = 
+SUM(balance_sheet[Total_Fixed_Assets])
+
+Total Assets = 
+SUM(balance_sheet[Total_Assets])
+
+Total Current Liabilities = 
+SUM(balance_sheet[Total_Current_Liabilities])
+
+Total Long Term Liabilities = 
+SUM(balance_sheet[Total_Long_Term_Liabilities])
+
+Total Liabilities = 
+SUM(balance_sheet[Total_Liabilities])
+
+Total Equity = 
+SUM(balance_sheet[Total_Equity])
+
+// --- LIQUIDITY RATIOS ---
+
+Current Ratio = 
+DIVIDE([Total Current Assets], [Total Current Liabilities], 0)
+
+Quick Ratio = 
+DIVIDE(
+    SUM(balance_sheet[Current_Assets_Cash]) + SUM(balance_sheet[Current_Assets_Receivables]),
+    [Total Current Liabilities],
+    0
+)
+
+Cash Ratio = 
+DIVIDE(
+    SUM(balance_sheet[Current_Assets_Cash]),
+    [Total Current Liabilities],
+    0
+)
+
+// --- LEVERAGE RATIOS ---
+
+Debt to Equity Ratio = 
+DIVIDE([Total Liabilities], [Total Equity], 0)
+
+Debt to Assets Ratio = 
+DIVIDE([Total Liabilities], [Total Assets], 0)
+
+Equity Multiplier = 
+DIVIDE([Total Assets], [Total Equity], 0)
+
+// --- EFFICIENCY RATIOS ---
+
+Return on Assets % = 
+DIVIDE([Net Income], [Total Assets], 0) * 100
+
+Return on Equity % = 
+DIVIDE([Net Income], [Total Equity], 0) * 100
+
+Asset Turnover = 
+DIVIDE([Total Revenue], [Total Assets], 0)
+
+Working Capital = 
+[Total Current Assets] - [Total Current Liabilities]
+
+
+// ============================================================
+// SECTION 5: CASH FLOW MEASURES
+// ============================================================
+
+Total CFO = 
+SUM(cash_flow[Total_CFO])
+
+Total CFI = 
+SUM(cash_flow[Total_CFI])
+
+Total CFF = 
+SUM(cash_flow[Total_CFF])
+
+Free Cash Flow = 
+SUM(cash_flow[Free_Cash_Flow])
+
+Net Cash Change = 
+SUM(cash_flow[Net_Change_In_Cash])
+
+Ending Cash Balance = 
+SUM(cash_flow[Ending_Cash])
+
+CapEx = 
+SUM(cash_flow[CFI_CapEx])
+
+CapEx as % of Revenue = 
+DIVIDE(ABS([CapEx]), [Total Revenue], 0) * 100
+
+FCF Margin % = 
+DIVIDE([Free Cash Flow], [Total Revenue], 0) * 100
+
+Cash Flow Coverage Ratio = 
+DIVIDE([Total CFO], [Total Current Liabilities], 0)
+
+Operating Cash Flow Ratio = 
+DIVIDE([Total CFO], [Total Current Liabilities], 0)
+
+
+// ============================================================
+// SECTION 6: BUDGET vs ACTUAL MEASURES
+// ============================================================
+
+Budget Amount = 
+SUM(budget_vs_actual[Budget_Amount])
+
+Actual Amount = 
+CALCULATE(
+    SUM(budget_vs_actual[Actual_Amount]),
+    budget_vs_actual[Type] = "Actual"
+)
+
+Forecast Amount = 
+CALCULATE(
+    SUM(budget_vs_actual[Forecast_Amount]),
+    budget_vs_actual[Type] = "Forecast"
+)
+
+Budget Variance = 
+[Actual Amount] - [Budget Amount]
+
+Budget Variance % = 
+DIVIDE([Budget Variance], [Budget Amount], 0) * 100
+
+Budget vs Actual Status = 
+VAR Var = [Budget Variance %]
+RETURN
+    SWITCH(
+        TRUE(),
+        ISBLANK(Var), "No Data",
+        Var >= 5, "Significantly Over",
+        Var >= 0, "On Target",
+        Var >= -5, "Slightly Under",
+        "Significantly Under"
+    )
+
+// Forecast for next 6 months (simple linear trend)
+Revenue Forecast Next Period = 
+VAR AvgGrowthRate = 
+    AVERAGEX(
+        FILTER(income_statement, income_statement[Year] = MAX(income_statement[Year])),
+        [Revenue YoY Growth]
+    ) / 100
+RETURN
+    [Total Revenue] * (1 + AvgGrowthRate)
+
+// Combined actual + forecast for waterfall
+Actuals and Forecast = 
+IF(
+    MAX(budget_vs_actual[Type]) = "Actual",
+    [Actual Amount],
+    [Forecast Amount]
+)
+
+
+// ============================================================
+// SECTION 7: PROFITABILITY TREND MEASURES
+// ============================================================
+
+Gross Margin 3M Avg = 
+AVERAGEX(
+    DATESINPERIOD(income_statement[Date], LASTDATE(income_statement[Date]), -3, MONTH),
+    [Gross Margin %]
+)
+
+Net Margin 3M Avg = 
+AVERAGEX(
+    DATESINPERIOD(income_statement[Date], LASTDATE(income_statement[Date]), -3, MONTH),
+    [Net Margin %]
+)
+
+// Margin trend direction (for conditional formatting)
+Gross Margin Trend = 
+VAR Current = [Gross Margin %]
+VAR Prior = CALCULATE([Gross Margin %], DATEADD(income_statement[Date], -1, MONTH))
+RETURN
+    IF(
+        ISBLANK(Prior), BLANK(),
+        IF(Current > Prior, 1, IF(Current < Prior, -1, 0))
+    )
+
+Net Margin Trend = 
+VAR Current = [Net Margin %]
+VAR Prior = CALCULATE([Net Margin %], DATEADD(income_statement[Date], -1, MONTH))
+RETURN
+    IF(
+        ISBLANK(Prior), BLANK(),
+        IF(Current > Prior, 1, IF(Current < Prior, -1, 0))
+    )
+
+
+// ============================================================
+// SECTION 8: KPI CARD MEASURES
+// ============================================================
+
+// Dynamic KPI: Revenue (formatted)
+KPI Revenue = 
+FORMAT([Total Revenue], "$#,##0")
+
+// Dynamic KPI: Net Income (formatted)
+KPI Net Income = 
+FORMAT([Net Income], "$#,##0")
+
+// Dynamic KPI: Gross Margin (formatted)
+KPI Gross Margin = 
+FORMAT([Gross Margin %] / 100, "0.0%")
+
+// Dynamic KPI: Free Cash Flow (formatted)
+KPI Free Cash Flow = 
+FORMAT([Free Cash Flow], "$#,##0")
+
+// Dynamic KPI: Current Ratio (formatted)
+KPI Current Ratio = 
+FORMAT([Current Ratio], "0.00x")
+
+// Dynamic KPI: D/E Ratio (formatted)  
+KPI Debt to Equity = 
+FORMAT([Debt to Equity Ratio], "0.00x")
+
+// Health Score (composite 0-100)
+// Weights: Profitability 35%, Liquidity 25%, Efficiency 20%, Growth 20%
+Financial Health Score = 
+VAR ProfitScore = 
+    MIN(100, MAX(0, ([Net Margin %] / 20) * 100 * 0.35))
+VAR LiquidityScore = 
+    MIN(100, MAX(0, (([Current Ratio] - 1) / 2) * 100 * 0.25))
+VAR EfficiencyScore = 
+    MIN(100, MAX(0, ([Asset Turnover] / 0.8) * 100 * 0.20))
+VAR GrowthScore = 
+    MIN(100, MAX(0, (([Revenue YoY Growth] + 5) / 25) * 100 * 0.20))
+RETURN
+    ROUND(ProfitScore + LiquidityScore + EfficiencyScore + GrowthScore, 0)
+
+Health Score Label = 
+VAR Score = [Financial Health Score]
+RETURN
+    SWITCH(
+        TRUE(),
+        Score >= 80, "Excellent",
+        Score >= 65, "Good",
+        Score >= 50, "Fair",
+        Score >= 35, "Weak",
+        "Critical"
+    )
+
+
+// ============================================================
+// SECTION 9: FORECAST / PROJECTION MEASURES
+// ============================================================
+
+// Simple 3-period moving average forecast
+Revenue Forecast MA3 = 
+AVERAGEX(
+    DATESINPERIOD(income_statement[Date], LASTDATE(income_statement[Date]), -3, MONTH),
+    [Total Revenue]
+)
+
+// Year-end revenue projection based on YTD run-rate
+Revenue Year-End Projection = 
+VAR MonthsElapsed = MONTH(TODAY())
+VAR YTD = [Revenue YTD]
+RETURN
+    IF(
+        MonthsElapsed > 0,
+        (YTD / MonthsElapsed) * 12,
+        BLANK()
+    )
+
+// Projected Annual Net Income
+Projected Annual Net Income = 
+VAR MonthsElapsed = MONTH(TODAY())
+VAR YTD = [Net Income YTD]
+RETURN
+    IF(
+        MonthsElapsed > 0,
+        (YTD / MonthsElapsed) * 12,
+        BLANK()
+    )
+
+// Budget attainment %
+Budget Attainment % = 
+DIVIDE([Revenue YTD], [Budget Amount], 0) * 100

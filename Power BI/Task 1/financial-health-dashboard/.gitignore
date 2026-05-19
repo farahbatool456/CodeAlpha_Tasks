@@ -1,0 +1,30 @@
+# Power BI Desktop files
+*.pbix
+*.pbit
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Temporary files
+*.tmp
+*.log
+~$*
+
+# Sensitive data — never commit real financial data
+# Rename your actual data files to something not matching these patterns
+data/real_*
+data/confidential_*
+data/actual_company_*

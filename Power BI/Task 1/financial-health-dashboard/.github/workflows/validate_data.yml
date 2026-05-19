@@ -1,0 +1,151 @@
+name: Validate Data Files
+
+on:
+  push:
+    paths:
+      - 'data/**'
+  pull_request:
+    paths:
+      - 'data/**'
+
+jobs:
+  validate-csv:
+    runs-on: ubuntu-latest
+    name: Validate CSV Structure and Data Integrity
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Validate income_statement.csv
+        run: |
+          python3 - <<'EOF'
+          import pandas as pd
+          import sys
+
+          df = pd.read_csv("data/income_statement.csv")
+
+          required_cols = [
+              "Date", "Month", "Year", "Quarter", "Revenue", "COGS",
+              "Gross_Profit", "Operating_Expenses", "EBITDA",
+              "Depreciation_Amortization", "EBIT", "Interest_Expense",
+              "EBT", "Tax", "Net_Income", "Division"
+          ]
+
+          missing = [c for c in required_cols if c not in df.columns]
+          if missing:
+              print(f"FAIL income_statement.csv: missing columns: {missing}")
+              sys.exit(1)
+
+          # Sanity checks
+          assert (df["Revenue"] > 0).all(), "Revenue must be positive"
+          assert (df["Gross_Profit"] >= 0).all(), "Gross Profit must be non-negative"
+          assert (df["Net_Income"] > 0).all(), "Net Income must be positive"
+
+          # Check Gross Profit = Revenue - COGS
+          calc_gp = df["Revenue"] - df["COGS"]
+          tolerance = 1
+          mismatch = (abs(df["Gross_Profit"] - calc_gp) > tolerance).sum()
+          if mismatch > 0:
+              print(f"WARN income_statement.csv: {mismatch} Gross Profit rows don't match Revenue - COGS")
+
+          print(f"PASS income_statement.csv — {len(df)} rows, {len(df.columns)} columns")
+          EOF
+
+      - name: Validate balance_sheet.csv
+        run: |
+          python3 - <<'EOF'
+          import pandas as pd
+          import sys
+
+          df = pd.read_csv("data/balance_sheet.csv")
+
+          required_cols = [
+              "Date", "Quarter", "Year", "Period",
+              "Total_Current_Assets", "Total_Fixed_Assets", "Total_Assets",
+              "Total_Current_Liabilities", "Total_Long_Term_Liabilities",
+              "Total_Liabilities", "Total_Equity", "Total_Liabilities_Equity"
+          ]
+
+          missing = [c for c in required_cols if c not in df.columns]
+          if missing:
+              print(f"FAIL balance_sheet.csv: missing columns: {missing}")
+              sys.exit(1)
+
+          # Accounting equation: Assets = Liabilities + Equity
+          tolerance = 100
+          mismatch = (abs(df["Total_Assets"] - df["Total_Liabilities_Equity"]) > tolerance).sum()
+          if mismatch > 0:
+              print(f"FAIL balance_sheet.csv: {mismatch} rows fail accounting equation (Assets != Liabilities + Equity)")
+              sys.exit(1)
+
+          print(f"PASS balance_sheet.csv — {len(df)} rows, accounting equation checks out")
+          EOF
+
+      - name: Validate cash_flow.csv
+        run: |
+          python3 - <<'EOF'
+          import pandas as pd
+          import sys
+
+          df = pd.read_csv("data/cash_flow.csv")
+
+          required_cols = [
+              "Date", "Quarter", "Year", "Period",
+              "Total_CFO", "Total_CFI", "Total_CFF",
+              "Net_Change_In_Cash", "Beginning_Cash", "Ending_Cash", "Free_Cash_Flow"
+          ]
+
+          missing = [c for c in required_cols if c not in df.columns]
+          if missing:
+              print(f"FAIL cash_flow.csv: missing columns: {missing}")
+              sys.exit(1)
+
+          # Net change should equal CFO + CFI + CFF
+          calc_net = df["Total_CFO"] + df["Total_CFI"] + df["Total_CFF"]
+          tolerance = 10
+          mismatch = (abs(df["Net_Change_In_Cash"] - calc_net) > tolerance).sum()
+          if mismatch > 0:
+              print(f"WARN cash_flow.csv: {mismatch} rows — Net Change doesn't match CFO+CFI+CFF")
+
+          print(f"PASS cash_flow.csv — {len(df)} rows")
+          EOF
+
+      - name: Validate budget_vs_actual.csv
+        run: |
+          python3 - <<'EOF'
+          import pandas as pd
+          import sys
+
+          df = pd.read_csv("data/budget_vs_actual.csv")
+
+          required_cols = [
+              "Date", "Month", "Year", "Quarter", "Category",
+              "Budget_Amount", "Actual_Amount", "Forecast_Amount",
+              "Variance", "Variance_Pct", "Type"
+          ]
+
+          missing = [c for c in required_cols if c not in df.columns]
+          if missing:
+              print(f"FAIL budget_vs_actual.csv: missing columns: {missing}")
+              sys.exit(1)
+
+          valid_types = {"Actual", "Forecast"}
+          invalid = df[~df["Type"].isin(valid_types)]
+          if len(invalid) > 0:
+              print(f"FAIL budget_vs_actual.csv: invalid Type values: {invalid['Type'].unique()}")
+              sys.exit(1)
+
+          print(f"PASS budget_vs_actual.csv — {len(df)} rows")
+          EOF
+
+      - name: Summary
+        run: echo "All CSV validation checks passed."
